@@ -1,5 +1,6 @@
 <h1>Bookstores</h1>
 
 <% @bookstores.each do |bookstore| %>
-  <h3><%= link_to bookstore.name, "/bookstores/#{bookstore.id}" %></h3>
+  <% Bookstore.order(:created_at) %>
+  <h3><%= link_to bookstore.name, "/bookstores/#{bookstore.id}" %></h3><%= bookstore.created_at %>
 <% end %>
