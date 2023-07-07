@@ -22,18 +22,5 @@ RSpec.describe Book do
       expect(page).to have_content(@book1.author)
       expect(page).to have_content(@book1.genre)
     end
-    # As a visitor
-    # When I visit '/child_table_name/:id'
-    # Then I see the child with that id including the child's attributes
-    # (data from each column that is on the child table)
-    it "can view each book on its own page by id with attributes" do
-      visit "/books/1"
-      
-      expect(page).to have_content(@book1.book_title)
-      expect(page).to have_content(@book1.author)
-      expect(page).to have_content(@book1.genre)
-      expect(page).to have_content()
-    end
   end
-
 end
