@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_191412) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_07_001750) do
+  create_table "books", force: :cascade do |t|
+    t.boolean "on_sale"
+    t.string "author"
+    t.string "genre"
+    t.string "book_title"
+    t.integer "available_copies"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "bookstore_id", null: false
+    t.index ["bookstore_id"], name: "index_books_on_bookstore_id"
+  end
+
   create_table "bookstores", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -19,6 +32,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_191412) do
     t.boolean "coffee_shop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_bookstores_on_book_id"
   end
 
+  add_foreign_key "books", "bookstores"
+  add_foreign_key "bookstores", "books"
 end

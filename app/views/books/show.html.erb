@@ -1,0 +1,12 @@
+<h1><%= @books.name %></h1>
+<p><b>Title: </b><br> <%= @book.title %></p> 
+<p><b>Author: </b><br> <%= @book.author %></p>
+<p><b>Genre: </b><br> <%= @book.genre %><br>
+<p><b>Available Copies: </b><br> <%= @book.available_copies %><br>
+<p><b>Price: </b><br> <%= @book.price %><br>
+
+<% if @book.on_sale == true %>
+    <p><b>This title is currently on sale!</p></b>
+<% else %>
+    <br>
+<%end%>

@@ -1,7 +1,13 @@
 <h1><%= @bookstore.name %></h1>
 <p><b>Bookstore Location:</b><br> <%= @bookstore.city %></p> 
 <p><b>Parking Spots:</b><br> <%= @bookstore.parking_spots %></p>
-<p><b>Hours of Operation:</b><br> <%= @bookstore.hours %>
+<p><b>Hours of Operation:</b><br> <%= @bookstore.hours %><br>
 <% if @bookstore.coffee_shop == true %>
     <p><b>Enjoy a coffee while you browse!</p></b>
+<% else %>
+    <br>
 <%end%>
+
+
+<%= link_to "Click to see our available books", "/bookstores/#{@bookstore.id}" %>
+

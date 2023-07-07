@@ -9,15 +9,15 @@ RSpec.describe "Bookstores Index" do
       @bookstore5 = Bookstore.create!(name: "Tomes & Trinkets", city: "Vernal", coffee_shop: false, parking_spots: 20, hours: "10 am - 7 pm")
   end
 
-  describe "/parent view" do 
+  describe "/parent index" do 
     it "should show each bookstore on the bookstore index page" do
       visit '/bookstores'
 
-      expect(page). to have_content(@bookstore1.name)
-      expect(page). to have_content(@bookstore2.name)
-      expect(page). to have_content(@bookstore3.name)
-      expect(page). to have_content(@bookstore4.name)
-      expect(page). to have_content(@bookstore5.name)
+      expect(page).to have_content(@bookstore1.name)
+      expect(page).to have_content(@bookstore2.name)
+      expect(page).to have_content(@bookstore3.name)
+      expect(page).to have_content(@bookstore4.name)
+      expect(page).to have_content(@bookstore5.name)
     end
   end
 end
