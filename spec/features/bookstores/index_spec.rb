@@ -29,11 +29,27 @@ RSpec.describe "Bookstores Index" do
       expect(page).to have_content(@bookstore4.created_at)
       expect(page).to have_content(@bookstore5.created_at)
     end
-
+    
     it "should have a link that takes me to the books index page" do
-      visit '/'
-
-      expect(page).to have_link('Book Index')
+      visit '/bookstores'
+      
+      expect(page).to have_link("Back to All Books")
+    end
+    
+    it "should allow creation of a new Parent record" do
+      visit '/bookstores'
+      
+      expect(page).to have_link("New Bookstore")
+    end
+    
+    it "should have links to each parent show page" do
+      visit '/bookstores'
+      
+      expect(page).to have_link("Tomes & Trinkets")
+      expect(page).to have_link("A Novel Idea")
+      expect(page).to have_link("Brevity Books")
+      expect(page).to have_link("Golden Braid Books")
+      expect(page).to have_link("Reader's Roost")
     end
   end
 end

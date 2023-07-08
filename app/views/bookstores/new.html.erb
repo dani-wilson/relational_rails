@@ -1,0 +1,9 @@
+<form action="/bookstores/new" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h1>Enter a New Bookstore </h1>
+  <p>Name</p><textarea name='bookstore[name]'></textarea><br/>
+  <p>City</p><textarea name='bookstore[city]'></textarea><br/>
+  <p>Hours</p><textarea name='bookstore[hours]'></textarea><br/>
+  <p>Parking spots</p><textarea name='bookstore[parking_spots]'></textarea><br/>
+  <input type='submit'/>
+</form>

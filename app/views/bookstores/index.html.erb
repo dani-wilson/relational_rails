@@ -1,9 +1,13 @@
 <h1>Bookstores</h1>
 
-<% @bookstores.each do |bookstore| %>
-  <% Bookstore.order(:created_at) %>
+<% sorted_bookstores = @bookstores.sort_by { |b| b.created_at }.reverse %>
+
+<% sorted_bookstores.each do |bookstore| %>
   <h3><%= link_to bookstore.name, "/bookstores/#{bookstore.id}" %></h3><%= bookstore.created_at %>
 <% end %>
 
+<h3><%= link_to "Add a new bookstore", "/bookstores/new" %></h3>
+
 <p><%= link_to "Back to All Books", "/books" %></p>
 <p><%= link_to "Back to Home", "/" %></p>
+
