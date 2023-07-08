@@ -22,5 +22,11 @@ RSpec.describe Book do
       expect(page).to have_content(@book1.author)
       expect(page).to have_content(@book1.genre)
     end
+
+    it "should have a link that takes me to the books index page" do
+      visit '/books'
+
+      expect(page).to have_link('Back to Top')
+    end
   end
 end

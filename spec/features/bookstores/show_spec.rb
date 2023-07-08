@@ -33,7 +33,7 @@ RSpec.describe "Bookstores Show" do
     expect(page).to have_content(@bookstore3.parking_spots)
     expect(page).to have_content(@bookstore3.hours)
     expect(page).to_not have_content("Enjoy a coffee")
-
+    
     visit '/bookstores/4'
     
     expect(page).to have_content(@bookstore4.name)
@@ -49,5 +49,49 @@ RSpec.describe "Bookstores Show" do
     expect(page).to have_content(@bookstore5.parking_spots)
     expect(page).to have_content(@bookstore5.hours)
     expect(page).to_not have_content("Enjoy a coffee")
+  end
+  
+  it "displays a count of books associated with that individual bookstore" do
+    visit '/bookstores/1'
+    
+    expect(page).to have_content(@bookstore1.books.size)
+    
+    visit '/bookstores/2'
+
+    expect(page).to have_content(@bookstore2.books.size)
+    
+    visit '/bookstores/3'
+    
+    expect(page).to have_content(@bookstore3.books.size)
+    
+    visit '/bookstores/4'
+    
+    expect(page).to have_content(@bookstore4.books.size)
+    
+    visit '/bookstores/5'
+    
+    expect(page).to have_content(@bookstore5.books.size)
+  end
+
+  it "should have a link that takes me to the books index page" do
+    visit '/bookstores/1'
+    
+    expect(page).to have_link("Back to All Books")
+    
+    visit '/bookstores/2'
+
+    expect(page).to have_link("Back to All Books")
+    
+    visit '/bookstores/3'
+    
+    expect(page).to have_link("Back to All Books")
+    
+    visit '/bookstores/4'
+    
+    expect(page).to have_link("Back to All Books")
+    
+    visit '/bookstores/5'
+    
+    expect(page).to have_link("Back to All Books")
   end
 end

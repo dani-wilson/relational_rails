@@ -75,6 +75,28 @@ RSpec.describe "/bookstores/:bookstore_id/books" do
     expect(page).to have_content("Price: $25.00")
     expect(page).to have_content("Price: $25.00")
   end
+
+  it "should have a link that takes me to the books index page" do
+    visit "/bookstores/1/books"
+    
+    expect(page).to have_link("Back to All Books")
+    
+    visit "/bookstores/1/books"
+
+    expect(page).to have_link("Back to All Books")
+    
+    visit "/bookstores/1/books"
+    
+    expect(page).to have_link("Back to All Books")
+    
+    visit "/bookstores/1/books"
+    
+    expect(page).to have_link("Back to All Books")
+    
+    visit "/bookstores/1/books"
+    
+    expect(page).to have_link("Back to All Books")
+  end
 end
 
 

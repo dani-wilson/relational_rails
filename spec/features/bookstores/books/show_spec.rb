@@ -61,5 +61,27 @@
         expect(page).to have_content(@book5.price)
         expect(page).to have_content("This title is currently on sale!")
       end
+
+      it "should have a link that takes me to the books index page" do
+        visit "/books/1"
+    
+        expect(page).to have_link("Back to All Books")
+        
+        visit "/books/2"
+
+        expect(page).to have_link("Back to All Books")
+        
+        visit "/books/3"
+        
+        expect(page).to have_link("Back to All Books")
+        
+        visit "/books/4"
+        
+        expect(page).to have_link("Back to All Books")
+        
+        visit "/books/5"
+        
+        expect(page).to have_link("Back to All Books")
+      end
     end
   end

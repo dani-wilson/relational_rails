@@ -29,5 +29,11 @@ RSpec.describe "Bookstores Index" do
       expect(page).to have_content(@bookstore4.created_at)
       expect(page).to have_content(@bookstore5.created_at)
     end
+
+    it "should have a link that takes me to the books index page" do
+      visit '/'
+
+      expect(page).to have_link('Book Index')
+    end
   end
 end
