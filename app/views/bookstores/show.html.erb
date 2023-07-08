@@ -10,7 +10,8 @@
 
 
 <p>We have <%= "#{@bookstore.books.size}" %> books in our bookstore</p>
-<%= link_to "Click to see our available books", "/bookstores/#{@bookstore.id}/books" %>
+<p><%= link_to "Click to see our available books", "/bookstores/#{@bookstore.id}/books" %><p>
 
 <p><%= link_to "Back to All Books", "/books" %></p>
+<p><%= link_to "Back to Home", "/" %></p>
 

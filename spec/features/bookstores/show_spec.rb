@@ -94,4 +94,48 @@ RSpec.describe "Bookstores Show" do
     
     expect(page).to have_link("Back to All Books")
   end
+
+  it "should have a link that takes me to a page displaying the books that belong to that individual bookstore" do
+    visit '/bookstores/1'
+    
+    expect(page).to have_link("Click to see our available books")
+    
+    visit '/bookstores/2'
+
+    expect(page).to have_link("Click to see our available books")
+    
+    visit '/bookstores/3'
+    
+    expect(page).to have_link("Click to see our available books")
+    
+    visit '/bookstores/4'
+    
+    expect(page).to have_link("Click to see our available books")
+    
+    visit '/bookstores/5'
+    
+    expect(page).to have_link("Click to see our available books")
+  end
+
+  it "should have a link that takes me back to the home page" do
+    visit '/bookstores/1'
+    
+    expect(page).to have_link("Back to Home")
+    
+    visit '/bookstores/2'
+
+    expect(page).to have_link("Back to Home")
+    
+    visit '/bookstores/3'
+    
+    expect(page).to have_link("Back to Home")
+    
+    visit '/bookstores/4'
+    
+    expect(page).to have_link("Back to Home")
+    
+    visit '/bookstores/5'
+    
+    expect(page).to have_link("Back to Home")
+  end
 end
