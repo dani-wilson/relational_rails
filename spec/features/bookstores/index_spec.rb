@@ -22,7 +22,7 @@ RSpec.describe "Bookstores Index" do
     
     it "should organize records by creation time as well as display the time it was created" do
       visit '/bookstores'
-      
+
       expect(page).to have_content(@bookstore1.created_at)
       expect(page).to have_content(@bookstore2.created_at)
       expect(page).to have_content(@bookstore3.created_at)
@@ -35,13 +35,7 @@ RSpec.describe "Bookstores Index" do
       
       expect(page).to have_link("Back to All Books")
     end
-    
-    it "should allow creation of a new Parent record" do
-      visit '/bookstores'
-      
-      expect(page).to have_link("New Bookstore")
-    end
-    
+  
     it "should have links to each parent show page" do
       visit '/bookstores'
       
@@ -50,6 +44,17 @@ RSpec.describe "Bookstores Index" do
       expect(page).to have_link("Brevity Books")
       expect(page).to have_link("Golden Braid Books")
       expect(page).to have_link("Reader's Roost")
+    end
+
+    it "should allow creation of a new Parent record" do
+      visit '/bookstores'
+      
+      expect(page).to have_link("Add a new bookstore")
+      
+      visit 'bookstores/new'
+      
+      expect(page).to have_content("Name")
+      expect(page).to have_button
     end
   end
 end
