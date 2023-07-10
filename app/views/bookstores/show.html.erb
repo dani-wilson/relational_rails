@@ -1,3 +1,8 @@
+<nav>
+  <a href="/books">All Books</a> |
+  <a href="/">Back to Home</a>
+</nav>
+
 <h1><%= @bookstore.name %></h1>
 <p><b>Bookstore Location:</b><br> <%= @bookstore.city %></p> 
 <p><b>Parking Spots:</b><br> <%= @bookstore.parking_spots %></p>
@@ -11,7 +16,4 @@
 
 <p>We have <%= "#{@bookstore.books.size}" %> books in our bookstore</p>
 <p><%= link_to "Click to see our available books", "/bookstores/#{@bookstore.id}/books" %><p>
-
-<p><%= link_to "Back to All Books", "/books" %></p>
-<p><%= link_to "Back to Home", "/" %></p>
 

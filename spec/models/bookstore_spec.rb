@@ -8,9 +8,8 @@ RSpec.describe Bookstore, type: :model do
     @bookstore4 = Bookstore.create!(name: "A Novel Idea", city: "Roosevelt", coffee_shop: true, parking_spots: 15, hours: "8 am - 6 pm")
     @bookstore5 = Bookstore.create!(name: "Tomes & Trinkets", city: "Vernal", coffee_shop: false, parking_spots: 20, hours: "10 am - 7 pm")
   end
-  # describe "parent index validations" do
-  #   # visit '/bookstores'
-
-  #   it { should validate_presence_of(@bookstore1.name) }
-  # end
+  
+  describe 'relationships' do
+  it {should have_many :books}
+  end
 end

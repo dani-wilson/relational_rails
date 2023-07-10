@@ -76,23 +76,23 @@ RSpec.describe "Bookstores Show" do
   it "should have a link that takes me to the books index page" do
     visit '/bookstores/1'
     
-    expect(page).to have_link("Back to All Books")
+    expect(page).to have_link("All Books")
     
     visit '/bookstores/2'
 
-    expect(page).to have_link("Back to All Books")
+    expect(page).to have_link("All Books")
     
     visit '/bookstores/3'
     
-    expect(page).to have_link("Back to All Books")
+    expect(page).to have_link("All Books")
     
     visit '/bookstores/4'
     
-    expect(page).to have_link("Back to All Books")
+    expect(page).to have_link("All Books")
     
     visit '/bookstores/5'
     
-    expect(page).to have_link("Back to All Books")
+    expect(page).to have_link("All Books")
   end
 
   it "should have a link that takes me to a page displaying the books that belong to that individual bookstore" do
@@ -137,5 +137,31 @@ RSpec.describe "Bookstores Show" do
     visit '/bookstores/5'
     
     expect(page).to have_link("Back to Home")
+  end
+
+  # As a visitor
+  # When I visit a parent show page
+  # Then I see a link to update the parent "Update Parent"
+  # When I click the link "Update Parent"
+  # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+  # When I fill out the form with updated information
+  # And I click the button to submit the form
+  # Then a `PATCH` request is sent to '/parents/:id',
+  # the parent's info is updated,
+  # and I am redirected to the Parent's Show page where I see the parent's updated info
+  it "can update a bookstore from the bookstores show page" do
+    visit "/bookstores/1"
+
+    expect(page).to have_link("Update Bookstore")
+
+    click_link("Update Bookstore")
+
+    expect(current_path).to eq("/bookstores/1/edit")
+
+    visit "/bookstores/1/edit"
+
+    expect(page).to have_form
+    expect(page).to have_content("Name")
+    expect(page).to have_button
   end
 end

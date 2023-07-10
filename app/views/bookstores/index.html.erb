@@ -1,3 +1,8 @@
+<nav>
+  <a href="/books">All Books</a> |
+  <a href="/">Back to Home</a> 
+</nav>
+
 <h1>Bookstores</h1>
 
 <% sorted_bookstores = @bookstores.sort_by { |b| b.created_at }.reverse %>
@@ -8,6 +13,4 @@
 
 <h3><%= link_to "Add a new bookstore", "/bookstores/new" %></h3>
 
-<p><%= link_to "Back to All Books", "/books" %></p>
-<p><%= link_to "Back to Home", "/" %></p>
 
