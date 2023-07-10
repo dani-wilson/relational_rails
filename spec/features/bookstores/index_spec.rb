@@ -50,6 +50,10 @@ RSpec.describe "Bookstores Index" do
       visit '/bookstores'
       
       expect(page).to have_link("Add a new bookstore")
+
+      click_link('Add a new bookstore')
+
+      expect(current_path).to eq('/bookstores/new')
       
       visit 'bookstores/new'
       
