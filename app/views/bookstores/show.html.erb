@@ -17,3 +17,5 @@
 <p>We have <%= "#{@bookstore.books.size}" %> books in our bookstore</p>
 <p><%= link_to "Click to see our available books", "/bookstores/#{@bookstore.id}/books" %><p>
 
+<h3><%= link_to "Update This Bookstore", "/bookstores/#{@bookstore.id}/edit" %></h3>
+

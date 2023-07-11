@@ -1,0 +1,13 @@
+<%= form_with url: "/bookstores/#{@bookstore.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br/>
+  <%= form.label :location %>
+  <%= form.text_field :location %><br/>
+  <%= form.label :parking_spots %>
+  <%= form.text_field :parking_spots %><br/>
+  <%= form.label :hours %>
+  <%= form.text_field :hours %><br/><br/>
+
+  <%= form.submit "Update Bookstore" %>
+<% end %>
+

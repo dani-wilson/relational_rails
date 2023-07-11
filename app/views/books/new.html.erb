@@ -1,0 +1,16 @@
+<%= form_with url: "/bookstores/#{@bookstore.id}/books/new", method: :post, local: true do |f| %>
+  <%= f.label :book_title %>
+  <%= f.text_field :book_title %><br/>
+  <%= f.label :author %>
+  <%= f.text_field :author %><br/>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %><br/>
+  <%= f.label :available_copies %>
+  <%= f.text_field :available_copies %><br/>
+  <%= f.label :price %>
+  <%= f.text_field :price %><br/>
+  <p>On Sale?<br/><%= f.select :on_sale, ['yes', 'no'] %></p>
+  <br/><%= f.submit "Add Book" %>
+
+
+<%end%>

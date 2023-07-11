@@ -23,4 +23,20 @@ class BookstoresController < ApplicationController
         
       redirect_to '/bookstores'
   end
+
+  def edit
+    @bookstore = Bookstore.find(params[:id])
+  end
+
+  def update
+    @bookstore = Bookstore.find(params[:id])
+    @bookstore.update(bookstore_params)
+
+    redirect_to "/bookstores/#{@bookstore.id}"
+  end
+
+  private
+  def bookstore_params
+    params.permit(:name, :city, :hours, :parking_spots, :coffee_shop)
+  end
 end

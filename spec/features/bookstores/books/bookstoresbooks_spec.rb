@@ -102,6 +102,17 @@ RSpec.describe "/bookstores/:bookstore_id/books" do
     expect(page).to have_link("All Books")
     expect(page).to have_link("Back to Home")
   end
+
+  it "has the option to add a new book to the bookstore" do
+    visit "bookstores/1/books"
+    expect(page).to have_link("Add Book")
+    click_link("Add Book")
+    expect(current_path).to eq("/bookstores/1/books/new")
+    visit "/bookstores/1/books/new"
+    expect(page).to have_button
+    click_button("Add Book")
+    expect(current_path).to eq("/bookstores/1/books")
+  end
 end
 
 
